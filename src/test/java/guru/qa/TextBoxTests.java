@@ -8,8 +8,7 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxTests {
 
@@ -30,7 +29,7 @@ public class TextBoxTests {
         $("#lastName").setValue("Kireeva");
         $("#userEmail").setValue("aaakireeva@yandex.ru");
         $("#genterWrapper").$(byText("Female")).click();
-        $("#userNumber").setValue("88005553535");
+        $("#userNumber").setValue("89295722597");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("October");
         $(".react-datepicker__year-select").selectOption("1998");
@@ -40,6 +39,10 @@ public class TextBoxTests {
         $("#hobbiesWrapper").$(byText("Music")).click();
         $("#uploadPicture").uploadFile(picture);
         $("#currentAddress").setValue("Ulitsa Pravdy");
+
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
+
         $(byText("Select State")).click();
         $(byText("NCR")).click();
         $(byText("Select City")).click();
@@ -47,10 +50,10 @@ public class TextBoxTests {
 
         $("#submit").click();
 
-        $("#table-responsive").shouldHave(text("Anastasia Kireeva"));
+        $(".table-responsive").shouldHave(text("Anastasia Kireeva"));
         $(".table-responsive").shouldHave(text("aaakireeva@yandex.ru"));
         $(".table-responsive").shouldHave(text("Female"));
-        $(".table-responsive").shouldHave(text("88005553535"));
+        $(".table-responsive").shouldHave(text("89295722597"));
         $(".table-responsive").shouldHave(text("22 October, 1998"));
         $(".table-responsive").shouldHave(text("Maths"));
         $(".table-responsive").shouldHave(text("Sports"));
