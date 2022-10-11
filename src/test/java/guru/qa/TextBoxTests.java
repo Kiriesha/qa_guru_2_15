@@ -29,11 +29,13 @@ public class TextBoxTests {
         $("#lastName").setValue("Kireeva");
         $("#userEmail").setValue("aaakireeva@yandex.ru");
         $("#genterWrapper").$(byText("Female")).click();
-        $("#userNumber").setValue("89295722597");
+        $("#userNumber").setValue("0123456789");
+
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("October");
         $(".react-datepicker__year-select").selectOption("1998");
-        $(".react-datepicker__day--022:not(.react-datepicker__day--selected").click();
+        $(".react-datepicker__day--022").click();
+
         $("#subjectsInput").setValue("Maths").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#hobbiesWrapper").$(byText("Music")).click();
@@ -53,8 +55,8 @@ public class TextBoxTests {
         $(".table-responsive").shouldHave(text("Anastasia Kireeva"));
         $(".table-responsive").shouldHave(text("aaakireeva@yandex.ru"));
         $(".table-responsive").shouldHave(text("Female"));
-        $(".table-responsive").shouldHave(text("89295722597"));
-        $(".table-responsive").shouldHave(text("22 October, 1998"));
+        $(".table-responsive").shouldHave(text("0123456789"));
+        $(".table-responsive").shouldHave(text("22 October,1998"));
         $(".table-responsive").shouldHave(text("Maths"));
         $(".table-responsive").shouldHave(text("Sports"));
         $(".table-responsive").shouldHave(text("Music"));
