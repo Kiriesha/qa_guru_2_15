@@ -100,4 +100,5 @@ public class RegistrationFormPage {
         resultTableComponent.checkResult(key, value);
         return this;
     }
+
 }
